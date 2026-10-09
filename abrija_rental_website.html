@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="sq" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABRIJA rental - Rent a Car, Take a Trip</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandOrange: '#f97316',
+                        darkBg: '#0f0f0f',
+                        cardBg: '#1a1a1a',
+                        borderDark: '#2c2c2c'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-100 min-h-screen flex flex-col selection:bg-brandOrange selection:text-white">
+
+    <header class="sticky top-0 z-50 bg-darkBg/95 backdrop-blur border-b border-borderDark py-4 px-4 sm:px-8 shadow-lg">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            
+            <!-- Logo & Brand Name -->
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-full border-2 border-brandOrange overflow-hidden bg-black flex items-center justify-center shadow-md">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=100&auto=format&fit=crop&q=60" alt="ABRIJA Logo" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/100x100/000000/f97316?text=AB'">
+                </div>
+                <div>
+                    <h1 class="text-2xl font-black tracking-wider text-white uppercase">ABRIJA <span class="text-brandOrange font-light text-xl">rental</span></h1>
+                    <p class="text-[10px] text-gray-400 tracking-widest uppercase font-semibold">Rent a Car Take a Trip</p>
+                </div>
+            </div>
+
+            <!-- Contact & Socials Bar -->
+            <div class="flex flex-wrap items-center justify-center gap-3 text-sm">
+                <a href="https://wa.me/355692066523" target="_blank" class="flex items-center space-x-2 bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-full transition shadow-sm">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+                    <span class="font-medium">+355 69 20 66 523</span>
+                </a>
+                <div class="flex items-center space-x-2 bg-cardBg border border-borderDark px-3 py-1.5 rounded-full">
+                    <a href="https://instagram.com/abrija_rent_a_car" target="_blank" class="text-gray-300 hover:text-brandOrange transition px-1"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    <a href="https://facebook.com/AbrijaTravel" target="_blank" class="text-gray-300 hover:text-brandOrange transition px-1"><i class="fa-brands fa-facebook text-lg"></i></a>
+                    <a href="https://tiktok.com/@abrijatravelrentacar" target="_blank" class="text-gray-300 hover:text-brandOrange transition px-1"><i class="fa-brands fa-tiktok text-lg"></i></a>
+                </div>
+                <button onclick="toggleAdminModal()" class="bg-brandOrange/10 hover:bg-brandOrange text-brandOrange hover:text-white border border-brandOrange px-4 py-1.5 rounded-full font-semibold transition text-xs uppercase tracking-wider">
+                    <i class="fa-solid fa-gear mr-1"></i> Menaxho Makinat
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative bg-gradient-to-b from-cardBg to-darkBg py-16 px-4 border-b border-borderDark overflow-hidden text-center">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#f97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="relative max-w-4xl mx-auto space-y-6">
+            <span class="inline-block bg-brandOrange/20 text-brandOrange border border-brandOrange/30 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest animate-pulse">
+                24/7 Shërbim & Rezervime
+            </span>
+            <h2 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white">
+                Rent a Car <span class="text-brandOrange">Take a Trip</span>
+            </h2>
+            <p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
+                Zgjidhni automjetin tuaj të preferuar për udhëtime komode në Shqipëri dhe jashtë saj. Makina të sigurta, çmime konkurruese dhe shërbim profesional.
+            </p>
+            <div class="flex justify-center gap-4 pt-2">
+                <a href="#fleet" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-8 py-3 rounded-xl transition shadow-lg shadow-brandOrange/30 text-sm tracking-wide">
+                    Shiko Makinat <i class="fa-solid fa-arrow-down ml-2"></i>
+                </a>
+                <a href="tel:+355692066523" class="bg-cardBg hover:bg-borderDark text-white border border-borderDark font-bold px-6 py-3 rounded-xl transition text-sm tracking-wide">
+                    <i class="fa-solid fa-phone text-brandOrange mr-2">+355 69 20 66 523</i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-8 py-12" id="fleet">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4 border-b border-borderDark pb-4">
+            <div>
+                <h3 class="text-2xl font-black uppercase tracking-wider text-white">Flota Jonë e Makinave</h3>
+                <p class="text-xs text-gray-400">Zgjidhni automjetin e duhur për udhëtimin tuaj të rradhës</p>
+            </div>
+            <button onclick="toggleAdminModal()" class="bg-brandOrange hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition shadow-md">
+                <i class="fa-solid fa-plus mr-1"></i> Shto Makinë të Re
+            </button>
+        </div>
+
+        <!-- Car Grid -->
+        <div id="carGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamic items rendered via JavaScript -->
+        </div>
+    </main>
+
+    <footer class="bg-cardBg border-t border-borderDark py-12 px-4 mt-12 text-center text-sm text-gray-400">
+        <div class="max-w-7xl mx-auto space-y-4">
+            <h4 class="text-lg font-bold text-white uppercase tracking-wider">ABRIJA rental</h4>
+            <p class="text-xs text-gray-500">Makina me qera • Taksi • Ture Turistike • Apartamente me qera</p>
+            <div class="flex justify-center space-x-6 text-gray-300">
+                <a href="https://instagram.com/abrija_rent_a_car" target="_blank" class="hover:text-brandOrange transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="https://facebook.com/AbrijaTravel" target="_blank" class="hover:text-brandOrange transition"><i class="fa-brands fa-facebook text-xl"></i></a>
+                <a href="https://tiktok.com/@abrijatravelrentacar" target="_blank" class="hover:text-brandOrange transition"><i class="fa-brands fa-tiktok text-xl"></i></a>
+                <a href="https://wa.me/355692066523" target="_blank" class="hover:text-brandOrange transition"><i class="fa-brands fa-whatsapp text-xl"></i></a>
+            </div>
+            <p class="text-xs text-gray-600 pt-4 border-t border-borderDark/50">© 2026 ABRIJA rental. Të gjitha të drejtat e rezervuara.</p>
+        </div>
+    </footer>
+
+    <!-- BOOKING MODAL -->
+    <div id="bookingModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-cardBg border border-borderDark rounded-2xl w-full max-w-md p-6 relative shadow-2xl animate-in">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-xl font-bold uppercase text-white mb-2">Rezervo Makinën</h3>
+            <p id="bookingCarTitle" class="text-xs text-brandOrange font-semibold mb-4 uppercase tracking-wider">Modeli:</p>
+            
+            <form id="bookingForm" onsubmit="submitBooking(event)" class="space-y-4">
+                <input type="hidden" id="selectedCarName">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Emri Mbiemri</label>
+                    <input type="text" id="clientName" required class="w-full bg-darkBg border border-borderDark rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brandOrange">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Numri i Telefonit / WhatsApp</label>
+                    <input type="tel" id="clientPhone" required placeholder="+355 69..." class="w-full bg-darkBg border border-borderDark rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brandOrange">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Data e Nisjes</label>
+                        <input type="date" id="startDate" required class="w-full bg-darkBg border border-borderDark rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brandOrange">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Data e Kthimit</label>
+                        <input type="date" id="endDate" required class="w-full bg-darkBg border border-borderDark rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brandOrange">
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition shadow-lg text-sm uppercase tracking-wider mt-2">
+                    Dërgo Rezervimin në WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADMIN / FLEET MANAGEMENT MODAL -->
+    <div id="adminModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-cardBg border border-borderDark rounded-2xl w-full max-w-lg p-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="toggleAdminModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-xl font-bold uppercase text-white mb-2 flex items-center"><i class="fa-solid fa-gear text-brandOrange mr-2"></i> Menaxhimi i Flotës</h3>
+            <p class="text-xs text-gray-400 mb-6">Shto makina të reja ose fshi makinat ekzistuese nga sistemi yt.</p>
+            
+            <!-- Add Form -->
+            <form id="addCarForm" onsubmit="addNewCar(event)" class="space-y-4 bg-darkBg p-4 rounded-xl border border-borderDark mb-6">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-brandOrange">Shto Makinë të Re në Listë</h4>
+                <div>
+                    <label class="block text-xs text-gray-400 mb-1">Modeli i Makinës (p.sh. Golf 7 GTD)</label>
+                    <input type="text" id="newModel" required class="w-full bg-cardBg border border-borderDark rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-brandOrange">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">Çmimi (€ / ditë)</label>
+                        <input type="number" id="newPrice" required class="w-full bg-cardBg border border-borderDark rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-brandOrange">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">Transmisioni</label>
+                        <select id="newTransmission" class="w-full bg-cardBg border border-borderDark rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-brandOrange">
+                            <option value="Automatik">Automatik</option>
+                            <option value="Manual">Manual</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">Ulëse</label>
+                        <input type="number" id="newSeats" value="5" required class="w-full bg-cardBg border border-borderDark rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-brandOrange">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">URL e Fotos (Opsionale)</label>
+                        <input type="url" id="newImage" placeholder="https://..." class="w-full bg-cardBg border border-borderDark rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-brandOrange">
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-lg text-xs uppercase tracking-wider transition">
+                    + Shto Makinën
+                </button>
+            </form>
+
+            <!-- Current Fleet Management List -->
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-300 mb-3">Makinat Aktuale (Fshi)</h4>
+            <div id="adminCarList" class="space-y-2 max-h-48 overflow-y-auto pr-1">
+                <!-- Populated via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Default car fleet if empty in localStorage
+        const defaultCars = [
+            { id: 1, model: 'Volkswagen Golf 7', price: 40, transmission: 'Automatik', seats: 5, image: 'https://images.unsplash.com/photo-1622185135505-2d795003c94a?w=600&auto=format&fit=crop&q=60' },
+            { id: 2, model: 'Audi A6 S-Line', price: 80, transmission: 'Automatik', seats: 5, image: 'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=600&auto=format&fit=crop&q=60' },
+            { id: 3, model: 'Mercedes-Benz C-Class', price: 70, transmission: 'Automatik', seats: 5, image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&auto=format&fit=crop&q=60' },
+            { id: 4, model: 'BMW X5 xDrive', price: 110, transmission: 'Automatik', seats: 7, image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&auto=format&fit=crop&q=60' }
+        ];
+
+        // Load cars from localStorage or use defaults
+        function getCars() {
+            const stored = localStorage.getItem('abrija_cars');
+            if (!stored) {
+                localStorage.setItem('abrija_cars', JSON.stringify(defaultCars));
+                return defaultCars;
+            }
+            return JSON.parse(stored);
+        }
+
+        function saveCars(cars) {
+            localStorage.setItem('abrija_cars', JSON.stringify(cars));
+            renderFleet();
+            renderAdminList();
+        }
+
+        // Render Public Fleet Grid
+        function renderFleet() {
+            const cars = getCars();
+            const grid = document.getElementById('carGrid');
+            grid.innerHTML = '';
+
+            if (cars.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500">Nuk ka makina të regjistruara momentalisht. Shtoni një nga butoni i menaxhimit.</div>`;
+                return;
+            }
+
+            cars.forEach(car => {
+                const card = document.createElement('div');
+                card.className = 'bg-cardBg border border-borderDark rounded-2xl overflow-hidden shadow-lg hover:border-brandOrange/50 transition flex flex-col justify-between group';
+                card.innerHTML = `
+                    <div class="relative h-48 overflow-hidden bg-black">
+                        <img src="${car.image || 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&auto=format&fit=crop&q=60'}" alt="${car.model}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/1a1a1a/f97316?text=ABRIJA+rental'">
+                        <span class="absolute top-3 right-3 bg-brandOrange text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+                            €${car.price} / ditë
+                        </span>
+                    </div>
+                    <div class="p-5 space-y-4 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-lg font-bold text-white uppercase">${car.model}</h4>
+                            <div class="flex items-center space-x-4 mt-2 text-xs text-gray-400">
+                                <span><i class="fa-solid fa-gears text-brandOrange mr-1"></i> ${car.transmission}</span>
+                                <span><i class="fa-solid fa-user-group text-brandOrange mr-1"></i> ${car.seats} Ulëse</span>
+                            </div>
+                        </div>
+                        <button onclick="openBookingModal('${car.model}', ${car.price})" class="w-full bg-brandOrange/10 hover:bg-brandOrange text-brandOrange hover:text-white border border-brandOrange/40 font-bold py-2.5 rounded-xl transition text-xs uppercase tracking-wider">
+                            Rezervo Tani
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Render Admin Management List
+        function renderAdminList() {
+            const cars = getCars();
+            const list = document.getElementById('adminCarList');
+            list.innerHTML = '';
+
+            cars.forEach(car => {
+                const item = document.createElement('div');
+                item.className = 'flex items-center justify-between bg-darkBg border border-borderDark p-2.5 rounded-lg text-xs';
+                item.innerHTML = `
+                    <span class="font-semibold text-white uppercase">${car.model} (€${car.price}/d)</span>
+                    <button onclick="deleteCar(${car.id})" class="bg-red-500/20 hover:bg-red-500 text-red-400 hover:text-white px-2.5 py-1 rounded transition">
+                        <i class="fa-solid fa-trash"></i> Fshi
+                    </button>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        // Add New Car
+        function addNewCar(e) {
+            e.preventDefault();
+            const model = document.getElementById('newModel').value;
+            const price = parseFloat(document.getElementById('newPrice').value);
+            const transmission = document.getElementById('newTransmission').value;
+            const seats = parseInt(document.getElementById('newSeats').value);
+            const image = document.getElementById('newImage').value;
+
+            const cars = getCars();
+            const newCar = {
+                id: Date.now(),
+                model,
+                price,
+                transmission,
+                seats,
+                image: image.trim() !== '' ? image : 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&auto=format&fit=crop&q=60'
+            };
+
+            cars.push(newCar);
+            saveCars(cars);
+
+            document.getElementById('addCarForm').reset();
+            alert('Makinë u shtua me sukses!');
+        }
+
+        // Delete Car
+        function deleteCar(id) {
+            if (confirm('A jeni të sigurt që doni ta fshini këtë makinë?')) {
+                let cars = getCars();
+                cars = cars.filter(c => c.id !== id);
+                saveCars(cars);
+            }
+        }
+
+        // Modal Controls
+        function toggleAdminModal() {
+            const modal = document.getElementById('adminModal');
+            modal.classList.toggle('hidden');
+            renderAdminList();
+        }
+
+        function openBookingModal(modelName, price) {
+            document.getElementById('selectedCarName').value = modelName;
+            document.getElementById('bookingCarTitle').innerText = 'Modeli: ' + modelName + ' (€' + price + '/ditë)';
+            document.getElementById('bookingModal').classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        // Submit Booking via WhatsApp
+        function submitBooking(e) {
+            e.preventDefault();
+            const car = document.getElementById('selectedCarName').value;
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const start = document.getElementById('startDate').value;
+            const end = document.getElementById('endDate').value;
+
+            const text = `Përshëndetje ABRIJA rental! Deshiroj të bëj një rezervim:\n- Makina: ${car}\n- Emri: ${name}\n- Telefoni: ${phone}\n- Nga data: ${start}\n- Deri në datën: ${end}`;
+            const encoded = encodeURIComponent(text);
+            
+            window.open(`https://wa.me/355692066523?text=${encoded}`, '_blank');
+            closeBookingModal();
+        }
+
+        // Initialize on load
+        window.onload = function() {
+            renderFleet();
+        }
+    </script>
+</body>
+</html>
